@@ -1,13 +1,13 @@
-const loadPhone = async (searchText) => {
+const loadPhone = async (searchText, isClicked) => {
   const response = await fetch(
     `https://openapi.programming-hero.com/api/phones?search=${searchText}`
   )
   const data = await response.json()
   const phones = data.data
-  displayPhones(phones)
+  displayPhones(phones, isClicked)
 }
 
-const displayPhones = (phones) => {
+const displayPhones = (phones, isClicked) => {
   // Step-1 : get the requried container using getElementById
 
   const phoneContainer = document.getElementById('phone-container')
@@ -15,14 +15,17 @@ const displayPhones = (phones) => {
 
   // display show all btn if there are more than 9 phones
   const showAllBtn = document.getElementById('show-all-btn')
-  if (phones.length > 9) {
+  if (phones.length > 9 && !isClicked) {
     showAllBtn.classList.remove('hidden')
   } else {
     showAllBtn.classList.add('hidden')
   }
+  console.log('is showAllBtn clicked', isClicked)
 
-  //   minimizing phones item to 9
-  phones = phones.slice(0, 9)
+  //   minimizing phones item to 9 if show all btn is not clicked (means isClicked = false)
+  if (!isClicked) {
+    phones = phones.slice(0, 9)
+  }
 
   phones.forEach((phone) => {
     // Step-2 : create a new div
@@ -53,21 +56,31 @@ const displayPhones = (phones) => {
     phoneContainer.appendChild(phoneCard)
   })
 
-  const loadingSpinner = document.getElementById('loading-spinner')
-  loadingSpinner.classList.add('hidden')
+  //   const loadingSpinner = document.getElementById('loading-spinner')
+  //   loadingSpinner.classList.add('hidden')
+  toggleSpinner(false)
 }
 // loadPhone()
 
-const productSearchBtn = () => {
-  toggleSpinner()
+const productSearchBtn = (isClicked) => {
+  toggleSpinner(true)
   const productSearchField = document.getElementById('product-search-field')
   const productSearchFieldText = productSearchField.value
   inputText = productSearchFieldText
-  console.log(productSearchFieldText)
-  loadPhone(inputText)
+
+  loadPhone(inputText, isClicked)
 }
 
-const toggleSpinner = () => {
+const toggleSpinner = (isLoading) => {
   const loadingSpinner = document.getElementById('loading-spinner')
-  loadingSpinner.classList.remove('hidden')
+  // loadingSpinner.classList.remove('hidden')
+  if (isLoading) {
+    loadingSpinner.classList.remove('hidden')
+  } else {
+    loadingSpinner.classList.add('hidden')
+  }
+}
+
+const showAllBtnClicked = () => {
+  productSearchBtn(true)
 }
