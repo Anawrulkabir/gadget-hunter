@@ -17,6 +17,8 @@ const displayPhones = (phones) => {
   const showAllBtn = document.getElementById('show-all-btn')
   if (phones.length > 9) {
     showAllBtn.classList.remove('hidden')
+  } else {
+    showAllBtn.classList.add('hidden')
   }
 
   //   minimizing phones item to 9
@@ -50,13 +52,22 @@ const displayPhones = (phones) => {
 
     phoneContainer.appendChild(phoneCard)
   })
+
+  const loadingSpinner = document.getElementById('loading-spinner')
+  loadingSpinner.classList.add('hidden')
 }
 // loadPhone()
 
 const productSearchBtn = () => {
+  toggleSpinner()
   const productSearchField = document.getElementById('product-search-field')
   const productSearchFieldText = productSearchField.value
   inputText = productSearchFieldText
   console.log(productSearchFieldText)
   loadPhone(inputText)
+}
+
+const toggleSpinner = () => {
+  const loadingSpinner = document.getElementById('loading-spinner')
+  loadingSpinner.classList.remove('hidden')
 }
