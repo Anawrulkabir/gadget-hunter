@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gadget Hunter</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- poppins font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <style>
+        html,
+        body {
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body class="">
+    <header class="bg-[#0D6EFD0D] h-[750px] mb-[400px]">
+        <div class="flex flex-row justify-between items-center ml-24 mr-24 pt-5 mb-11">
+            <div>
+                <h1 class="text-[25px] text-center p-4 text-[#403F3F]">Gadget Hunter</h1>
+            </div>
+            <div>
+                <button class="btn btn-primary text-white bg-[#0D6EFD] border-0">Sign Up</button>
+            </div>
+        </div>
+        <div class="flex flex-col space-y-6 justify-end items-center mb-[50px]">
+            <h1 class="font-bold text-[65px]">Apple iPhone 13 Pro Max</h1>
+            <p class="font-normal text-gray-400 text-center">There are many variations of passages of Lorem Ipsum
+                available, but the
+                majority <br> have
+                suffered alteration
+                in some form, by injected humou.</p>
+            <button class="btn btn-primary text-white bg-[#0D6EFD] border-0">Buy Now</button>
+        </div>
+
+        <div class="flex flex-row justify-center  items-end">
+            <div><img src="img/pngwing 3.svg" alt=""></div>
+            <div><img src="img/pngwing 1.svg" alt=""></div>
+            <div><img src="img/pngwing 2.svg" alt=""></div>
+
+        </div>
+
+    </header>
+    <main class="container mx-auto m-8">
+
+        <!-- search section -->
+        <section class="mb-[50px]">
+            <div class="flex flex-col justify-center items-center">
+                <h2 class="text-[35px] font-semibold mb-7">Search your phone</h2>
+                <div class="flex flex-row ">
+                    <label
+                        class="input input-bordered flex items-center gap-2 bg-[#100F0F0D] rounded-r-none focus:outline-none ">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
+                            class="w-4 h-4 opacity-70">
+                            <path fill-rule="evenodd"
+                                d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <input id="product-search-field" type="text" class="grow" placeholder="Search" />
+                    </label>
+                    <button id="product-search-btn" onclick="productSearchBtn()"
+                        class="btn btn-primary text-white bg-[#0D6EFD] border-0 rounded-l-none">Buy Now</button>
+                </div>
+
+            </div>
+
+
+
+        </section>
+
+
+        <!-- search result section  -->
+        <section class="ml-24 mr-24">
+            <!-- results -->
+            <div id="phone-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-10">
+
+
+                <!-- <div class="card w-96 bg-base-100 shadow-xl ">
+                    <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
+                            alt="Shoes" /></figure>
+                    <div class="card-body">
+                        <h2 class="card-title">Phone!</h2>
+                        <p>If a dog chews shoes whose shoes does he choose?</p>
+                        <div class="card-actions justify-center ">
+                            <button class="btn btn-primary w-full">Buy Now</button>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+
+            <!-- show all btn -->
+            <div id="show-all-btn" class="hidden">
+                <div class=" flex items-center justify-center">
+                    <button id="product-search-btn" class=" btn btn-primary text-white bg-[#0D6EFD] border-0 ">Show
+                        All</button>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+    <footer></footer>
+
+    <script src="js/phone.js"></script>
+</body>
+
+</html>
